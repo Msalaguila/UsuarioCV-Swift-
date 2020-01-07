@@ -1,10 +1,3 @@
-//
-//  DetailViewController.swift
-//  UsuarioCV
-//
-//  Created by Alexander Moreno Guillén on 8/12/19.
-//  Copyright © 2019 Alexander Moreno Guillén. All rights reserved.
-//
 
 import UIKit
 
@@ -19,6 +12,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var cvTitleLabel: UILabel!
     @IBOutlet weak var cvDescriptionLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var valoracionUsuarioLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +27,9 @@ class DetailViewController: UIViewController {
         ageLabel.text = "Age: \(user!.age)"
         jobLabel.text = "Job: " + user!.job
         guard let userID = user?.id else { return }
-        idLabel.text = "ID: \(userID)"
+        idLabel.text = "ID usuario: \(userID)"
+        let valoracion = user?.valoracion
+        valoracionUsuarioLabel.text = "Valoracion usuario: \(valoracion!)"
         let detailModel = DetailModel()
         cvTitleLabel.text = detailModel.getCurriculum(id: user!.cv).title
         cvDescriptionLabel.text = detailModel.getCurriculum(id: user!.cv).cvDescription

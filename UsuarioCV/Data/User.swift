@@ -1,10 +1,3 @@
-//
-//  User.swift
-//  UsuarioCV
-//
-//  Created by Alexander Moreno Guillén on 8/12/19.
-//  Copyright © 2019 Alexander Moreno Guillén. All rights reserved.
-//
 
 import Foundation
 import RealmSwift
@@ -17,4 +10,5 @@ class User: Object {
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var cv: Int = 0
     @objc dynamic var imageData: Data = Data()
+    @objc dynamic var valoracion: Int = 0
 }

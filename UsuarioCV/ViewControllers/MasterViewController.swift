@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  UsuarioCV
-//
-//  Created by Alexander Moreno Guillén on 8/12/19.
-//  Copyright © 2019 Alexander Moreno Guillén. All rights reserved.
-//
 
 import UIKit
 import RealmSwift
@@ -27,7 +20,10 @@ class MasterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = model.getNameAndSurname(indexPath.row)
+        let usuario = model.getUser(indexPath.row)
+        let nombre = usuario.name
+        let valoracion = usuario.valoracion
+        cell.textLabel?.text = "Nombre: \(nombre) Valoracion: \(valoracion)"
         return cell
     }
     

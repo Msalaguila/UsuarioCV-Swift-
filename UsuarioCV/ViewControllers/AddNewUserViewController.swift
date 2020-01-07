@@ -1,10 +1,3 @@
-//
-//  AddNewUserViewController.swift
-//  UsuarioCV
-//
-//  Created by Alexander Moreno Guillén on 8/12/19.
-//  Copyright © 2019 Alexander Moreno Guillén. All rights reserved.
-//
 
 import UIKit
 import RealmSwift
@@ -18,6 +11,7 @@ class AddNewUserViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cvTitleTextField: UITextField!
     @IBOutlet weak var cvDescriptionTextField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var userValoracionTextField: UITextField!
     
     let imagePickerController = UIImagePickerController()
     
@@ -69,6 +63,7 @@ class AddNewUserViewController: UIViewController, UIImagePickerControllerDelegat
                 idTextField.text != nil ||
                 jobTextField.text != nil ||
                 cvTitleTextField.text != nil ||
+                userValoracionTextField.text != nil ||
                 cvDescriptionTextField.text != nil {
                 let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
                 let surname = surnameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -76,6 +71,7 @@ class AddNewUserViewController: UIViewController, UIImagePickerControllerDelegat
                 let job = jobTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
                 let cvTitle = cvTitleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
                 let cvDescription = cvDescriptionTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+                let userValoracion = userValoracionTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
                 let imageData = imageView.image?.pngData()
                 let realm = try! Realm()
                 
@@ -89,6 +85,7 @@ class AddNewUserViewController: UIViewController, UIImagePickerControllerDelegat
                     user.name = name!
                     user.surname = surname!
                     user.age = Int(age!)!
+                    user.valoracion = Int(userValoracion!)!
                     user.job = job!
                     user.id = UUID().uuidString
                     user.imageData = imageData!
