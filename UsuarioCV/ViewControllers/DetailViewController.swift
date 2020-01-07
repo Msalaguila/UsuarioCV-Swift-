@@ -18,6 +18,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var cvTitleLabel: UILabel!
     @IBOutlet weak var cvDescriptionLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,8 @@ class DetailViewController: UIViewController {
         let detailModel = DetailModel()
         cvTitleLabel.text = detailModel.getCurriculum(id: user!.cv).title
         cvDescriptionLabel.text = detailModel.getCurriculum(id: user!.cv).cvDescription
+        let image = UIImage(data: user!.imageData)
+        imageView.image = image
     }
     
 }

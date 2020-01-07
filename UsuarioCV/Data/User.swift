@@ -16,4 +16,5 @@ class User: Object {
     @objc dynamic var job: String = ""
     @objc dynamic var id: String = UUID().uuidString
     @objc dynamic var cv: Int = 0
+    @objc dynamic var imageData: Data = Data()
 }
